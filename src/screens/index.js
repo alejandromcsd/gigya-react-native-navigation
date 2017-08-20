@@ -13,6 +13,7 @@ import CustomTopBarScreen from './types/CustomTopBarScreen';
 import CustomButtonScreen from './types/CustomButtonScreen';
 import GigyaSignIn from './types/GigyaSignIn';
 import GigyaSignInRoot from './types/GigyaSignInRoot';
+import GigyaLoggedInRoot from './types/GigyaLoggedInRoot';
 import TopTabs from './types/TopTabs';
 import TabOne from './types/tabs/TabOne';
 import TabTwo from './types/tabs/TabTwo';
@@ -40,6 +41,7 @@ export function registerScreens() {
   Navigation.registerComponent('example.Types.CustomTopBarScreen', () => CustomTopBarScreen);
   Navigation.registerComponent('example.Types.GigyaSignIn', () => GigyaSignIn);
   Navigation.registerComponent('example.Types.GigyaSignInRoot', () => GigyaSignInRoot);
+  Navigation.registerComponent('example.Types.GigyaLoggedInRoot', () => GigyaLoggedInRoot);
   Navigation.registerComponent('example.Types.CustomButtonScreen', () => CustomButtonScreen);
   Navigation.registerComponent('example.Types.TopTabs', () => TopTabs);
   Navigation.registerComponent('example.Types.TopTabs.TabOne', () => TabOne);

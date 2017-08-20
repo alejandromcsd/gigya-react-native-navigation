@@ -7,15 +7,18 @@ import {registerScreens, registerScreenVisibilityListener} from './screens';
 registerScreens();
 registerScreenVisibilityListener();
 
+// Gigya - Alejandro:
+// Commenting icons - I keep getting a runtime error on my env
+
 const tabs = [{
   label: 'Navigation',
   screen: 'example.Types',
-  icon: require('../img/list.png'),
+  // icon: require('../img/list.png'),
   title: 'Navigation Types',
 }, {
   label: 'Actions',
   screen: 'example.Actions',
-  icon: require('../img/swap.png'),
+  // icon: require('../img/swap.png'),
   title: 'Navigation Actions',
 }];
 
@@ -23,7 +26,7 @@ if (Platform.OS === 'android') {
   tabs.push({
     label: 'Transitions',
     screen: 'example.Transitions',
-    icon: require('../img/transform.png'),
+    // icon: require('../img/transform.png'),
     title: 'Navigation Transitions',
   });
 }

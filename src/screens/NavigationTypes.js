@@ -97,7 +97,7 @@ class NavigationTypes extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Row title={'Custom Button'} onPress={this.pushCustomButtonScreen}/>
+        <Row title={'Login'} onPress={this.pushCustomButtonScreen}/>
       </ScrollView>
     );
   }

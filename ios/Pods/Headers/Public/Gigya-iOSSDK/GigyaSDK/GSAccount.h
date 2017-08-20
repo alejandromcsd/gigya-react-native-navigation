@@ -1,1 +1,0 @@
-../../../../Gigya-iOSSDK/GigyaSDK.framework/Headers/GSAccount.h

@@ -21,25 +21,32 @@ export default class GigyaSignInRoot extends React.Component {
       this.onAccountDidLogin,
     );
 
-    this.AccountDidLogoutSubscription = this.gigyaManagerEmitter.addListener(
-      'AccountDidLogout',
-      this.onAccountDidLogout,
-    );
-
     Gigya.initBridge();
     Gigya.isSessionValid(this.onIsSessionValidCompleted);
   }
 
   componentWillUnmount() {
-    this.accountDidLoginSubscription.remove();
-    this.AccountDidLogoutSubscription.remove();
+    if (this.accountDidLoginSubscription) {
+      this.accountDidLoginSubscription.remove();
+    }
+    if (this.AccountDidLogoutSubscription) {
+      this.AccountDidLogoutSubscription.remove();
+    }
   }
 
   onAccountDidLogin = (account) => {
     this.setState({
       gigyaAccount: JSON.parse(account),
       isSessionValid: true,
-    });
+    }, () => {
+      this.props.navigator.resetTo({
+        screen: 'example.Types.GigyaLoggedInRoot',
+        title: 'Welcome',
+        passProps: {
+          account: this.state.gigyaAccount,
+        },
+      });
+    });   
   };
 
   onAccountDidLogout = () => {
@@ -56,11 +63,10 @@ export default class GigyaSignInRoot extends React.Component {
   };
 
   onGetAccountInfoCompleted = (error, account) => {
+    // Manage errors here
+    
     if (account) {
-      this.setState({
-        gigyaAccount: JSON.parse(account),
-        isSessionValid: true,
-      });
+      this.onAccountDidLogin(account);
     }
   };
 
@@ -77,10 +83,6 @@ export default class GigyaSignInRoot extends React.Component {
     Gigya.showScreenSet('newJan-RegistrationLogin', this.onScreenSetCompleted);
   };
 
-  viewProfile = () => {
-    Gigya.showScreenSet('Default-ProfileUpdate', this.onScreenSetCompleted);
-  };
-
   socialLogin = provider => Gigya.socialLogin(provider, this.onSocialLoginCompleted);
 
   onLoginCompleted = (error) => {
@@ -95,8 +97,6 @@ export default class GigyaSignInRoot extends React.Component {
 
   onSocialLoginCompleted = error => this.checkErrors(error);
 
-  logout = () => Gigya.logout();
-
   checkErrors = (error) => {
     if (!error) return;
     this.notifyUser(error);
@@ -110,6 +110,8 @@ export default class GigyaSignInRoot extends React.Component {
   });
 
   render() {
+    if (this.state.isSessionValid===null) return null;
+
     return (
       <Root>
         <GigyaSignIn

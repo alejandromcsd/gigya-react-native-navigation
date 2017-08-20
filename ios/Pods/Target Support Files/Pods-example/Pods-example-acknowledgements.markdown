@@ -500,10 +500,6 @@ Copyright 2017 Google
    limitations under the License.
 
 
-## Gigya-iOSSDK
-
-Copyright 2017 Gigya. See the terms of service at http://www.gigya.com/terms-of-service/
-
 ## Google
 
 Copyright 2016 Google Inc.

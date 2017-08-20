@@ -10,6 +10,7 @@
 // with npm ver 2. You'll need to "npm install" with npm 3 (see https://github.com/wix/react-native-navigation/issues/1)
 
 #import <React/RCTRootView.h>
+#import <GigyaSDK/Gigya.h>
 
 @implementation AppDelegate
 
@@ -44,8 +45,24 @@
   [self.window makeKeyAndVisible];
   */
 
+  // **********************************************
+  // *** GIGYA INIT *****
+  // **********************************************
+  [Gigya initWithAPIKey:@"3_n6HDyxNJWZ9C6j1JcQrexeRptHoiCayyzLQ0pXGd05WwXoYNaZAC83wQ2F7kCLWN" application:application launchOptions:launchOptions APIDomain:@"eu1.gigya.com"];
 
   return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+  
+  // Logs 'install' and 'app activate' App Events.
+  [Gigya handleDidBecomeActive];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+  return [Gigya handleOpenURL:url application:application sourceApplication:sourceApplication annotation:annotation];
 }
 
 @end

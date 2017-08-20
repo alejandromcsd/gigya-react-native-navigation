@@ -561,16 +561,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2017 Gigya. See the terms of service at http://www.gigya.com/terms-of-service/</string>
-			<key>License</key>
-			<string>Copyright</string>
-			<key>Title</key>
-			<string>Gigya-iOSSDK</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>Copyright 2016 Google Inc.</string>
 			<key>License</key>
 			<string>Copyright</string>

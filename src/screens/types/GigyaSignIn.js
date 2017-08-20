@@ -9,10 +9,6 @@ const styles = {
     backgroundColor: '#FAFAFA',
     padding: 10,
   },
-  header: {
-    backgroundColor: '#FAFAFA',
-    padding: 10,
-  },
   button: { marginTop: 10 },
   heading: { marginTop: 20, marginBottom: 20 },
   separatorText: { alignSelf: 'center' },
@@ -22,7 +18,6 @@ const styles = {
 
 const GigyaSignIn = ({ onLoginPressed, onSocialLoginPressed, onScreensetPressed }) => (
   <Container style={styles.container}>
-    <Header style={styles.header} />
     <Content>
       <Grid>
         <Row>
